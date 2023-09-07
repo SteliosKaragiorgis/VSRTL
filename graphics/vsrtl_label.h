@@ -2,8 +2,6 @@
 
 #include "vsrtl_graphicsbaseitem.h"
 #include "vsrtl_qt_serializers.h"
-#include "vsrtl_component.h"
-#include "vsrtl_port.h"
 
 #include "cereal/cereal.hpp"
 
@@ -25,7 +23,6 @@ public:
 
     void setHoverable(bool enabled);
     void setText(const QString& text);
-    QString getText();
     void setAlignment(Qt::Alignment alignment);
     void setPointSize(int size);
     void setLocked(bool locked) override;
@@ -102,15 +99,10 @@ public:
         applyFormatChanges();
     }
 
-    void setActive(bool value);
-
-    bool isActive();
-
 protected:
     void applyFormatChanges();
     void editTriggered();
 
-    bool m_active = true;
     bool m_hoverable = true;
     QFont m_font;
     bool m_defaultColorOverridden = false;
